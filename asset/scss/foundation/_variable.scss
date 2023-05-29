@@ -1,0 +1,77 @@
+$color-base: #fff;
+$color-main: #235028;
+$color-main-100: #E8F2EA;
+$color-main-200: #DDE4DE;
+$color-main-300: #ABBBAD;
+$color-accent: #E3BF61;
+
+$color-gray: #d9d9d9;
+$color-black: #333;
+
+$text-jp: 'Noto Sans JP';
+$text-en: Lora;
+
+$text--12: 12px;
+$text--14: 14px;
+$text--16: 16px;
+$text--24: 24px;
+$text--28: 28px;
+$text--36: 36px;
+$text--48: 48px;
+
+$header-height: 56px;
+$max_site_width: 1032px;
+
+@mixin text-en($font-size: $text--16, $font-weight: lighter) {
+    font-size: $font-size;
+    font-family: $text-en;
+    font-weight: $font-weight;
+}
+@mixin text-jp($font-size: $text--12, $font-weight: lighter) {
+    font-size: $font-size;
+    font-family: $text-jp;
+    font-weight: $font-weight;
+}
+
+@mixin breakpoint($point) {
+    @if $point ==sp {
+        @media (max-width: 575px) {
+            @content;
+        }
+    }
+
+    @if $point ==spandtablet {
+        @media (max-width: 1005px) {
+            @content;
+        }
+    }
+
+    @if $point ==tablet {
+        @media (min-width: 576px) and (max-width: 1005px) {
+            @content;
+        }
+    }
+
+    @if $point ==pc {
+        @media (min-width: 1006px) {
+            @content;
+        }
+    }
+}
+@include breakpoint(sp) {}
+
+@include breakpoint(tablet) {}
+
+@include breakpoint(pc) {}
+
+.sponly {
+    @include breakpoint(sp) {
+        display: block;
+    }
+    @include breakpoint(tablet) {
+        display: none;
+    }
+    @include breakpoint(pc) {
+        display: none;
+    }
+}

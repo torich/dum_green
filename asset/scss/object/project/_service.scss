@@ -1,0 +1,61 @@
+@use "../../foundation/variable" as *;
+.p-service {
+    background-image: url(../img/bg-service.png);
+    background-color: $color-main-200;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    position: relative;
+    min-height: 100vh;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 136px;
+        left: 0px;
+        background: $color-main-200;
+        width: 100%;
+        height: calc(100vh - 136px);
+        z-index: 2;
+    }
+    .c-inner {
+        position: relative;
+        z-index: 3;
+    }
+    &__content {
+        margin-top: 63px;
+        background-color: $color-base;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    @include breakpoint(pc) {
+        background-size: 140% auto;
+        .c-inner {
+            padding: 0.05px 30px 113px;
+        }
+        &__content {
+            padding: 32px 40px;
+        }
+    }
+    @include breakpoint(tablet) {
+        background-size: auto;
+        .c-inner {
+            padding: 0.05px 30px 113px;
+        }
+        &__content {
+            padding: 24px 32px;
+        }
+    }
+    @include breakpoint(sp) {
+        background-size: auto 10%;
+        .c-inner {
+            padding-bottom: 60px;
+        }
+        &::before {
+            top: 147px;
+            height: 100%;
+        }
+
+        &__content {
+            background-color: transparent;
+        }
+    }
+}

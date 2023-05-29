@@ -1,0 +1,143 @@
+@use "../foundation/variable" as *;
+.l-header {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    animation: slideDown .5s ease-in;
+    &.scrolled {
+        opacity: 1;
+        visibility: visible;
+        position: sticky;
+        top: 0;
+        height: $header-height;
+        background-color: rgba($color-base, .8);
+        display: flex;
+        flex-flow: nowrap row;
+        z-index: 9998;
+    }
+    @keyframes slideDown {
+        0% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    .c-inner {
+        width: 100%;
+        padding: 10px 0;
+    }
+    &__content{
+        display: flex;
+        flex-flow: nowrap row;
+        align-items: center;
+    }
+    &__logo {
+        flex: 1 0;
+    }
+    &__title {
+        @include text-en($text--24, bold);
+        color: $color-black;
+        flex: 6 0;
+        user-select: none;
+    }
+    @include breakpoint(tablet) {
+        padding-right: 30px;
+    }
+    @include breakpoint(sp) {
+        padding: 0px 16px;
+    }
+    @include breakpoint(spandtablet) {
+        position: relative;
+        &__nav {
+            flex: 5 0;
+            display: inline-flex;
+            justify-content: flex-end;
+            &btn {
+                width: 20px;
+                height: 20px;
+                position: relative;
+                z-index: 100;
+                &::before, &::after {
+                    content: "";
+                    display: block;
+                    height: 2px;
+                    background-color: currentColor;
+                    transform: translateY(5px);
+                }
+                &::before {
+                    transform: translateY(-5px);
+                    box-shadow: 0 6px currentColor;
+                }
+
+            }
+            &menu {
+                display: flex !important;
+                position: absolute;
+                width: 80%;
+                height: 100vh;
+                background: rgba(0, 0, 0, .5);
+                top: 0;
+                right: 0;
+                flex-flow: nowrap column;
+                justify-content: center;
+                align-items: center;
+                gap: 80px ;
+                z-index: 10;
+                a {
+                    color: white;
+                }
+                transition: all .5s ease-in-out;
+                &[aria-hidden=true] {
+                    transform: translateX(100%);
+                }
+                &[aria-hidden=false] {
+                    transform: translateX(0%);
+                }
+            }
+        }
+    }
+
+    @include breakpoint(pc) {
+        &__nav {
+            flex: 5 0;
+            &btn {
+                display: none;
+            }
+            &menu[aria-hidden=false] {
+                display: flex;
+                flex-flow: nowrap row;
+                align-items: center;
+                justify-content: space-around;
+            }
+            &item {
+                position: relative;
+                padding-left: 24px;
+                a {
+                    text-decoration: none;
+                    color: $color-black;
+                    &:hover{
+                        color: skyblue;
+                        text-decoration: underline;
+                        &::before {
+                            border-left-color: skyblue;
+                        }
+                    }
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        display: block;
+                        top: 50%;
+                        left: 0;
+                        transform: translate(0, -50%);
+                        border-top: 7px solid transparent;
+                        border-left: 14px solid $color-main-200;
+                        border-bottom: 7px solid transparent;
+                        transition: border .4s;
+                    }
+                }
+                @include text-en($text--16);
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+@use "./../../foundation/variable" as *;
+
+.c-inner {
+    max-width: $max_site_width;
+    margin: 0 auto;
+    padding: 10px 30px;
+}

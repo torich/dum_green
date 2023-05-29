@@ -1,0 +1,42 @@
+@use "../../foundation/variable" as *;
+.p-fv {
+    // background-image: url("../img/bg_fv@3x.png");
+    color: $color-base;
+    opacity: 0;
+    &.scrolled {
+        opacity: 1;
+        margin-top: -100vh;
+        transition: opacity 1s ease-in;
+        margin-bottom: calc(0px - $header-height);
+        .c-inner {
+            height: 100vh;
+            display: flex;
+            flex-flow: nowrap column;
+            justify-content: center;
+        }
+    }
+    &__title {
+        @include text-jp($text--36, bold);
+        .text-48 {
+            @include text-jp($text--48, bold);
+        }
+    }
+    &__description {
+        margin-top: 21px;
+        @include text-jp($text--16);
+        max-width: 300px;
+    }
+    @include breakpoint(sp) {
+        &.scrolled {
+            margin-bottom: 0;
+        }
+    }
+    @include breakpoint(pc) {
+        &__title {
+            &>*:first-child {
+                display: block;
+                @include text-jp($text--36, bold);
+            }
+        }
+    }
+}

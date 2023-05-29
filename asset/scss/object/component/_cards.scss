@@ -1,0 +1,58 @@
+@use "../../foundation/variable" as *;
+.c-cards {
+    display: flex;
+    flex-flow: nowrap row;
+    width: 100%;
+    gap: 0 2%;
+    justify-content: space-around;
+    &__item {
+        &-img {
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        &-title {
+            @include text-jp($text--16, 500);
+        }
+        &-description {
+            margin: 8px 0 16px;
+            @include text-jp($text--12, 500);
+        }
+    }
+    @include breakpoint(pc) {
+        &__item {
+            flex: 1 0 32%;
+            display: flex;
+            flex-flow: nowrap column;
+            &-info {
+                padding: 16px 4px 0;
+            }
+        }
+    }
+    @include breakpoint(tablet) {
+        flex-flow: nowrap column;
+        gap: 50px 0;
+        &__item {
+            display: flex;
+            flex-flow: nowrap row;
+            gap: 0 28px;
+            &-info {
+                display: flex;
+                flex-flow: nowrap column;
+            }
+            &-description {
+                flex-grow: 1;
+            }
+        }
+    }
+    @include breakpoint(sp) {
+        flex-flow: nowrap column;
+        gap: 50px 0;
+        &__item {
+            display: flex;
+            flex-flow: nowrap column;
+            gap: 0 16px;
+        }
+    }
+}

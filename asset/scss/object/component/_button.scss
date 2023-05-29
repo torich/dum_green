@@ -1,0 +1,15 @@
+@use "./../../foundation/variable" as *;
+
+.c-button {
+    width: 100%;
+    display: block;
+    @include text-jp($text--14, 500);
+    border-radius: 30px;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    &.primary {
+        background: $color-accent;
+        color: $color-base;
+    }
+}

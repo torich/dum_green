@@ -1,0 +1,21 @@
+@use "./../../foundation/variable" as *;
+
+.c-section {
+    min-width: 100vw;
+    min-height: calc(100vh - $header-height);
+    background-size: cover;
+    overflow: hidden;
+    &__title {
+        margin: 115px auto 0;
+        letter-spacing: 0.2em;
+        line-height: 1.6;
+        text-align: center;
+        @include text-en($text--28, bold);
+    }
+    &__description {
+        margin: 40px auto 0;
+        text-align: center;
+        line-height: 1.6;
+        @include text-jp($text--12, 500);
+    }
+}

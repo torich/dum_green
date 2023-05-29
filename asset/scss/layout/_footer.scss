@@ -1,0 +1,59 @@
+@use "../foundation/variable" as *;
+.l-footer {
+    background: $color-main;
+    color: white;
+    a {
+        color: white;
+    }
+    .c-inner {
+        display: grid;
+        @include text-jp($text--12, 300);
+        grid-template-columns: 6% 78% 16%;
+        grid-template-areas: 
+            "ftr-logo ftr-content ftr-snslist"
+            ". ftr-copyright ftr-copyright";
+    }
+    &__logo {
+        grid-area: ftr-logo;
+        width: 30px;
+        height: auto;
+    }
+    &__content {
+        grid-area: ftr-content;
+        
+        &-title {
+            @include text-en($text--16, bold);
+        }
+        &-row {
+            &>*:first-child {
+                width: 8rem;
+                display: inline-block;
+            }
+            &>*:last-child {
+                &::before {
+                    content: ":";
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+    &__snslist {
+        grid-area: ftr-snslist;
+        display: flex;
+        flex-flow: nowrap row;
+        justify-content: flex-end;
+        &>*{
+            margin-left: 10px;
+            font-size: 18px;
+        }
+    }
+    &__copyright {
+        justify-self: flex-end;
+        grid-area: ftr-copyright;
+    }
+    @include breakpoint(sp) {
+        .c-inner {
+            grid-template-columns: 16% 58% 26%;
+        }
+    }
+}

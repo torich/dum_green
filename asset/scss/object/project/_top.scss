@@ -1,0 +1,149 @@
+@use "../../foundation/variable" as *;
+.p-top {
+    // background-image: url("../img/bg_fv@3x.png");
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: center;
+    align-items: center;
+    &__image {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        overflow: hidden;
+        img, source {
+            width: auto;
+            height: 100%;
+        }
+    }
+    @include breakpoint(sp) {
+        &__image {
+            img, source {
+                width: auto;
+                height: 200%;
+            }
+        }
+    }
+    // logoアニメーション
+    &__logo-container {
+        flex:19 0;
+        display: inline-flex;
+        align-items: center;
+    }
+    &__logo{
+        width: 136px;
+        height: 136px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        &::before, &>*::before,
+        &::after, &>*::after {
+            content: "";
+            position: absolute;
+            display: block;
+            background-color: $color-base;
+            transform: translate(0, 0);
+            opacity: 0;
+        }
+
+        &::before, &>*::before {
+            width: 136px;
+            height: 1px;
+        }
+        &::after, &>*::after {
+            height: 136px;
+            width: 1px;
+        }
+        &::before, &>*::after {
+            left: 0;
+        }
+        &::after, &>*::before {
+            right: 0;
+        }
+        &::before, &::after {
+            top: 0;
+        }
+        &>*::before, &>*::after {
+            bottom: 0;
+        }
+
+        &.logo-border::before{
+            animation: top-border .5s ease-in-out ;
+            animation-fill-mode: forwards;
+        }
+        &.logo-border::after{
+            animation: right-border .5s ease-in-out ;
+            animation-delay: .5s;
+            animation-fill-mode: forwards;
+        }
+        &.logo-border>*::before{
+            animation: bottom-border .5s ease-in-out ;
+            animation-fill-mode: forwards;
+        }
+        &.logo-border>*::after {
+            animation: left-border .5s ease-in-out ;
+            animation-delay: .5s;
+            animation-fill-mode: forwards;
+        }
+    }
+    @keyframes top-border {
+        0%{
+            transform: translate(-136px, 0);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+    @keyframes right-border {
+        0%{
+            transform: translate(0, -136px);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+    @keyframes bottom-border {
+        0%{
+            transform: translate(136px, 0);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+    @keyframes left-border {
+        0%{
+            transform: translate(0, 136px);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+    &__scrollbtn {
+        flex: 1 0;
+        animation: passing 1s infinite ease-in-out;
+        animation-direction: alternate;
+    }
+
+
+}
+@keyframes passing {
+    0% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}

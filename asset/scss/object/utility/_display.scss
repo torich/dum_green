@@ -1,0 +1,16 @@
+* {
+    &[aria-hidden=false]{
+        opacity: 1;
+        visibility: visible;
+        display: block;
+    }
+    &[aria-hidden=true]{
+        opacity: 0;
+        
+        visibility: hidden;
+        display: none;
+    }
+}
+.display-contents {
+    display: contents;
+}

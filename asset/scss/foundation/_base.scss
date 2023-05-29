@@ -1,0 +1,49 @@
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lora', serif, 'Noto Sans JP', sans-serif;
+    color: #333;
+    font-size: 1.6rem;
+    min-width: 350px;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+dt, dd {
+    display: inline-block;
+}
+
+a {
+    color: #0066c0;
+    text-decoration: underline;
+    transition: .4s;
+
+    &:hover {
+        text-decoration: none;
+
+        img {
+            text-decoration: none;
+            opacity: .8;
+            -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            -ms-transition: all .3s;
+            -o-transition: all .3s;
+            transition: all .3s;
+        }
+    }
+}

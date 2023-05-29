@@ -1,0 +1,50 @@
+@use "../../foundation/variable" as *;
+.p-faq {
+    background-image: url(../img/bg-faq.png);
+    background-size: cover;
+    height: 100vh;
+    &__content{
+        background: $color-main-100;
+        width: 100%;
+        padding: 56px 24px;
+        margin-top: -20px;
+        box-sizing: border-box;
+    }
+    &__container {
+        background: $color-base;
+        height: calc(100vh - $header-height - 260px);
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding: 10px 26px 10px 14px;
+    }
+    &__item {
+        position: relative;
+        padding-left: 56px;
+        @include text-jp($text--12, 500);
+
+        &::before {
+            content: 'Q';
+            @include text-en($text--24, bold);
+            color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $color-gray;
+            border-radius: 100%;
+            width: 36px;
+            height: 37px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+        }
+    }
+    &__question{
+        padding: 10px 0 16px;
+        border-bottom: 1px dotted $color-gray;
+    }
+    &__answer {
+        margin-top: 16px;
+        margin-bottom: 32px;
+    }
+}
