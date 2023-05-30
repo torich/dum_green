@@ -28,9 +28,9 @@ window.onload = () => {
     // }
     console.log(flg);
     if (window.innerWidth > 1005) {
-        navbtn.nextElementSibling.setAttribute('aria-hidden', false);
+        navbtn.nextElementSibling.querySelector('.l-header__navmenu').setAttribute('aria-hidden', false);
     } else {
-        navbtn.nextElementSibling.setAttribute('aria-hidden', true);
+        navbtn.nextElementSibling.querySelector('.l-header__navmenu').setAttribute('aria-hidden', true);
 
     }
     if (flg) {
@@ -65,7 +65,7 @@ window.onload = () => {
     }
 }
 navbtn.addEventListener('click', (event) => {
-    let target = event.target.nextElementSibling;
+    let target = event.target.nextElementSibling.querySelector('.l-header__navmenu');
     let state = JSON.parse(target.getAttribute('aria-hidden'));
     target.setAttribute('aria-hidden', !(state));
 });
