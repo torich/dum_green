@@ -125,6 +125,7 @@ a:hover img {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  left: 0;
   height: 56px;
   background-color: rgba(255, 255, 255, 0.8);
   display: flex;
@@ -193,7 +194,6 @@ a:hover img {
     height: 20px;
     position: relative;
     z-index: 100;
-    overflow-x: hidden;
   }
   .l-header__navbtn::before, .l-header__navbtn::after {
     content: "";
@@ -206,14 +206,11 @@ a:hover img {
     transform: translateY(-5px);
     box-shadow: 0 6px currentColor;
   }
-  .l-header__navcontainer {
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9;
+  .l-header__navcontainer.open {
+    transform: unset;
+  }
+  .l-header__navcontainer.close {
+    transform: translateY(-100%);
   }
   .l-header__navmenu {
     display: flex !important;
@@ -235,11 +232,9 @@ a:hover img {
   }
   .l-header__navmenu[aria-hidden=true] {
     transform: translateX(100%);
-    opacity: 0;
   }
   .l-header__navmenu[aria-hidden=false] {
     transform: translateX(0%);
-    opacity: 1;
   }
 }
 @media (min-width: 1006px) {

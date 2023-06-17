@@ -26,7 +26,6 @@ window.onload = () => {
         };
         setTimeout(resetScroll, 0);
     // }
-    console.log(flg);
     if (window.innerWidth > 1005) {
         navbtn.nextElementSibling.querySelector('.l-header__navmenu').setAttribute('aria-hidden', false);
     } else {
@@ -67,7 +66,30 @@ window.onload = () => {
 navbtn.addEventListener('click', (event) => {
     let target = event.target.nextElementSibling.querySelector('.l-header__navmenu');
     let state = JSON.parse(target.getAttribute('aria-hidden'));
-    target.setAttribute('aria-hidden', !(state));
+    var result = new Promise(resolve => {
+        resolve(state);
+    });
+    result
+        .then(state => {
+            target.setAttribute('aria-hidden', !(state));
+            return !(state);
+        })
+        .then(flg => {
+            return new Promise(resolve => {
+                if (flg === true) {
+                    setTimeout(() => { 
+                        document.getElementById('navContainer').classList.remove('open');
+                        document.getElementById('navContainer').classList.add('close');
+                    }, 600);
+                } else {
+                    setTimeout(() => {
+                        document.getElementById('navContainer').classList.remove('close');
+                        document.getElementById('navContainer').classList.add('open');
+                    }, 0);
+                }
+            });
+        });
+
 });
 window.onresize = () => {
 
