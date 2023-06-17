@@ -93,14 +93,14 @@ navbtn.addEventListener('click', (event) => {
 });
 window.onresize = () => {
 
-    // if (timer !== false) {
-    //     clearTimeout(timer);
-    // }
-    // timer = setTimeout(() => {
-    //     let nowWidth = window.innerWidth;
-    //     if (prewidth !== nowWidth) {
-    //         location.reload();
-    //     }
-    //     prewidth = nowWidth;
-    // }, 200);
+    if (timer !== false) {
+        clearTimeout(timer);
+    }
+    timer = setTimeout(() => {
+        let nowWidth = window.innerWidth;
+        if (prewidth !== nowWidth) {
+            location.reload();
+        }
+        prewidth = nowWidth;
+    }, 200);
 };

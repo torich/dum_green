@@ -219,7 +219,7 @@ a:hover img {
   }
   .l-header__navmenu {
     display: flex !important;
-    position: absolute;
+    position: fixed;
     width: 80%;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
