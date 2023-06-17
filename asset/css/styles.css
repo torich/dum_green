@@ -206,11 +206,16 @@ a:hover img {
     transform: translateY(-5px);
     box-shadow: 0 6px currentColor;
   }
+  .l-header__navcontainer {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+  }
   .l-header__navcontainer.open {
-    transform: unset;
+    top: 0px;
   }
   .l-header__navcontainer.close {
-    transform: translateY(-100%);
+    top: -100%;
   }
   .l-header__navmenu {
     display: flex !important;

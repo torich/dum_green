@@ -72,12 +72,18 @@
                 }
 
             }
-            &container.open {
-                transform: unset;
+            &container{
+                position: absolute;
+                width: 100%;
+                left: 0px;
+                &.open {
+                    top: 0px;
+                }
+                &.close {
+                    top: -100%;
+                }
             }
-            &container.close {
-                transform: translateY(-100%);
-            }
+
             &menu {
                 display: flex !important;
                 position: absolute;
