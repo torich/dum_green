@@ -207,7 +207,7 @@ a:hover img {
     box-shadow: 0 6px currentColor;
   }
   .l-header__navcontainer {
-    position: absolute;
+    position: fixed;
     width: 100%;
     left: 0px;
   }
